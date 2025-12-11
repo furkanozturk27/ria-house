@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 5 5 5;
+    --foreground: 255 255 255;
+    --card: 26 26 26;
+    --card-foreground: 255 255 255;
+    --popover: 26 26 26;
+    --popover-foreground: 255 255 255;
+    --primary: 212 175 55;
+    --primary-foreground: 5 5 5;
+    --secondary: 26 26 26;
+    --secondary-foreground: 255 255 255;
+    --muted: 26 26 26;
+    --muted-foreground: 153 153 153;
+    --accent: 212 175 55;
+    --accent-foreground: 5 5 5;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 38 38 38;
+    --input: 38 38 38;
+    --ring: 212 175 55;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-[#050505] text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  /* Gold Gradient Text */
+  .text-gold-gradient {
+    @apply bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#D4AF37] bg-clip-text text-transparent;
+  }
+
+  /* Gold Glow Effect */
+  .gold-glow {
+    @apply shadow-[0_0_20px_rgba(212,175,55,0.3)];
+    transition: box-shadow 0.3s ease;
+  }
+
+  .gold-glow:hover {
+    @apply shadow-[0_0_40px_rgba(212,175,55,0.6)];
+  }
+
+  /* Gold Border Gradient */
+  .border-gold-gradient {
+    border-image: linear-gradient(135deg, #D4AF37 0%, #F4D03F 50%, #D4AF37 100%);
+    border-image-slice: 1;
+  }
+
+  /* Luxury Card Shadow */
+  .luxury-shadow {
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.3),
+      0 2px 4px -1px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(212, 175, 55, 0.1);
+  }
+
+  /* Gold Button Hover */
+  .gold-button {
+    @apply bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#050505] font-semibold;
+    transition: all 0.3s ease;
+  }
+
+  .gold-button:hover {
+    @apply from-[#F4D03F] to-[#D4AF37] shadow-[0_0_30px_rgba(212,175,55,0.5)];
+    transform: translateY(-1px);
+  }
+
+  /* Wide Letter Spacing for Headers */
+  .luxury-heading {
+    @apply tracking-wider;
+    letter-spacing: 0.1em;
+  }
+
+  /* Dimmed Future Event */
+  .dimmed-event {
+    @apply opacity-40 grayscale;
+    pointer-events: none;
+  }
+
+  /* Current Event Highlight */
+  .current-event {
+    @apply border-2 border-[#D4AF37] gold-glow;
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  /* Noise/Grain Texture Overlay */
+  .noise-texture {
+    position: relative;
+  }
+
+  .noise-texture::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Premium Glassmorphism Card */
+  .glass-card {
+    background: rgba(26, 26, 26, 0.4);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 
+      0 8px 32px 0 rgba(0, 0, 0, 0.37),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  /* Metallic Gold Gradient */
+  .text-metallic-gold {
+    background: linear-gradient(135deg, #fcd34d 0%, #eab308 50%, #fcd34d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Ultra Premium Heading */
+  .ultra-heading {
+    @apply uppercase tracking-[0.15em] font-light;
+    letter-spacing: 0.2em;
+  }
+
+  /* Shimmer/Glow Animation for Premium Cards */
+  .shimmer-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(251, 191, 36, 0.1),
+      transparent
+    );
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  /* Premium Access Pass Glow */
+  .access-pass-glow {
+    box-shadow: 
+      0 0 40px rgba(251, 191, 36, 0.2),
+      0 0 80px rgba(251, 191, 36, 0.1),
+      inset 0 0 40px rgba(251, 191, 36, 0.05);
+    animation: passGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes passGlow {
+    0%, 100% {
+      box-shadow: 
+        0 0 40px rgba(251, 191, 36, 0.2),
+        0 0 80px rgba(251, 191, 36, 0.1),
+        inset 0 0 40px rgba(251, 191, 36, 0.05);
+    }
+    50% {
+      box-shadow: 
+        0 0 60px rgba(251, 191, 36, 0.3),
+        0 0 120px rgba(251, 191, 36, 0.15),
+        inset 0 0 60px rgba(251, 191, 36, 0.08);
+    }
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#1A1A1A];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#D4AF37] rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#F4D03F];
+}
+
