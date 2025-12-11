@@ -64,6 +64,7 @@ export default function EventDetailPage() {
       code: generateCode(),
       is_used: false,
       assigned_to_application_id: null,
+      created_at: new Date().toISOString(),
     }))
     
     setCodes([...codes, ...newCodes])
